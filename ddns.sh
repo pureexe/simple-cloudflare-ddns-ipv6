@@ -30,7 +30,7 @@ update_cloudflare_dns_record() {
     curl -s -X PUT \
         -H "Authorization: Bearer $CF_API_TOKEN" \
         -H "Content-Type: application/json" \
-        --data "{\"type\":\"AAAA\",\"name\":\"$domain\",\"content\":\"$new_ip\",\"ttl\":1,\"proxied\":false}" \
+        --data "{\"type\":\"AAAA\",\"name\":\"$domain\",\"content\":\"$new_ip\",\"ttl\":1,\"proxied\":true}" \
         "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/dns_records/$record_id"
 }
 
